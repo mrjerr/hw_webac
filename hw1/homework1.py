@@ -87,7 +87,7 @@ def quadratic(a, b, c):
     d = b**2 - 4*a*c
     x = -b/(2*a)
     if d > 0:
-        return x+d, x-d
+        return x+d**0.5, x-d**0.5
     elif d == 0:
         return x
 
