@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL shortener</title>
+  </head>
+  <body>
+    {% if msg %}
+    <p style="background-color:
+      {% if msg.2 == 'error' %}yellow
+      {% else %} lightgreen
+      {% endif %}
+        ;">{{ msg.0 }}</p>
+    <p style="background-color:lightgreen;">{{msg.1}}
+      {%if msg.2 != 'error' %} <a href="{{msg.2}}">{{msg.2}}</a>{% endif %}</p>
+    {% endif %}
+    <form action="" method="post">
+      {% csrf_token %}
+      <label for="url">Введите URL</label>
+      <input type="text" name="url">
+      <input type="submit">
+    </form>
+  </body>
+</html>
