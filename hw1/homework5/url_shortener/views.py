@@ -37,5 +37,7 @@ def index(request):
 def redirect_view(request, key):
     url_obj = Url.objects.filter(key=key).first()
     if url_obj:
+        url_obj.redirect_count += 1
+        url_obj.save()
         return redirect(url_obj.source)
     return redirect('/')
