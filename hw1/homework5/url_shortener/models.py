@@ -14,4 +14,9 @@ from django.db import models
 # вида <ключ>:<исходная ссылка>
 #
 class Url(models.Model):
-    pass
+    source = models.CharField(max_length=256, unique=True)
+    key = models.CharField(max_length=6, unique=True)
+    redirect_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return '<{key}>: <{url}>'.format(key=self.key, url=self.source)
