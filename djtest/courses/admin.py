@@ -7,8 +7,10 @@ from .models import Courses, Student
 class CoursesAdmin(admin.ModelAdmin):
     list_display = ('title', 'start_date', 'end_date')
 
+
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('name', 'birthdate', 'email')
+
 
 admin.site.register(Courses, CoursesAdmin)
 admin.site.register(Student, StudentAdmin)
